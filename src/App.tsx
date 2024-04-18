@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { io } from "socket.io-client";
 
 function App() {
-  const socket = io("https://ed-ws.onrender.com");
+  const socket = io("http://localhost:3002");
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -18,7 +18,7 @@ function App() {
 
   const handleOnClick = async () => {
     try {
-      await axios.post("https://ed-order.onrender.com/order", {
+      await axios.post("http://localhost:3000/order", {
         amount: 100,
       });
     } catch (error) {
